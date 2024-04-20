@@ -51,3 +51,17 @@ type Configuration struct {
 		HandleTimeMax DurationConfiguration `yaml:"handle_time_max"`
 	} `yaml:"registers"`
 }
+
+type FuelStats struct {
+	TotalCars    int           `yaml:"total_cars"`
+	TotalTime    time.Duration `yaml:"total_time"`
+	MaxQueueTime time.Duration `yaml:"max_queue_time"`
+	AvgQueueTime time.Duration `yaml:"avg_queue_time"`
+}
+
+type RegisterStats struct {
+	TotalCars    int           `yaml:"total_cars"`
+	TotalTime    time.Duration `yaml:"total_time"`
+	MaxQueueTime time.Duration `yaml:"max_queue_time"`
+	AvgQueueTime time.Duration `yaml:"avg_queue_time"`
+}

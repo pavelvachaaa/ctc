@@ -1,7 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"os"
+	"path/filepath"
 
 	"pavel-vacha.cz/ctc/domain"
 	"pavel-vacha.cz/ctc/internal/paingas/types"
@@ -51,5 +54,32 @@ func main() {
 			close(register.Queue)
 		}
 	}()
+
+	yamlBytes, err := services.GenerateStats(painGas)
+	if err != nil {
+		fmt.Println("Error generating YAML:", err)
+		return
+	}
+
+	outputDir := "output"
+	err = os.MkdirAll(outputDir, 0755)
+	if err != nil {
+		fmt.Println("Error creating directory:", err)
+		return
+	}
+
+	filePath := filepath.Join(outputDir, "stats.yaml")
+	file, err := os.Create(filePath)
+	if err != nil {
+		fmt.Println("Error creating file:", err)
+		return
+	}
+	defer file.Close()
+
+	_, err = file.Write(yamlBytes)
+	if err != nil {
+		fmt.Println("Error writing to file:", err)
+		return
+	}
 
 }
