@@ -1,26 +1,26 @@
 stations:
     diesel:
-        total_cars: 55
-        total_time: 2.614023476s
-        max_queue_time: 82.132003ms
-        avg_queue_time: 47.527699ms
-    electric:
-        total_cars: 48
-        total_time: 3.685470762s
-        max_queue_time: 126.304481ms
-        avg_queue_time: 76.78064ms
-    gas:
         total_cars: 51
-        total_time: 1.874529498s
-        max_queue_time: 54.415223ms
-        avg_queue_time: 36.75548ms
+        total_time: 2.270639822s
+        max_queue_time: 59.515663ms
+        avg_queue_time: 44.522349ms
+    electric:
+        total_cars: 58
+        total_time: 4.512931779s
+        max_queue_time: 98.480493ms
+        avg_queue_time: 77.809168ms
+    gas:
+        total_cars: 42
+        total_time: 1.418448002s
+        max_queue_time: 48.196966ms
+        avg_queue_time: 33.772571ms
     lpg:
-        total_cars: 46
-        total_time: 2.527635656s
-        max_queue_time: 128.668058ms
-        avg_queue_time: 54.948601ms
+        total_cars: 49
+        total_time: 2.602633873s
+        max_queue_time: 70.149669ms
+        avg_queue_time: 53.114977ms
 registers:
     total_cars: 200
-    total_time: 4.072594754s
-    max_queue_time: 82.124669ms
-    avg_queue_time: 20.362973ms
+    total_time: 4.087571044s
+    max_queue_time: 31.709026ms
+    avg_queue_time: 20.437855ms
