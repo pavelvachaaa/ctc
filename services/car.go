@@ -18,7 +18,7 @@ func SimulateCars(painGas *domain.PainGas, config types.Configuration) {
 		}
 
 		painGas.Cars = append(painGas.Cars, car)
-		painGas.CarsWorkGroup.Add(1)
+		painGas.CarsWaitGroup.Add(1)
 
 		station := GetStationWithShortestQueue(painGas.Stations, car.StationType)
 		station.Queue <- car

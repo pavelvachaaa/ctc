@@ -54,18 +54,18 @@ func GetStationWithShortestQueue(stations []*domain.Station, carType types.FuelT
 func StationRoutine(station *domain.Station, painGas *domain.PainGas) {
 	for car := range station.Queue {
 
-		car.ServiceStartTime = time.Now()
+		car.StationStartTime = time.Now()
 		serveTime := utils.GetRandomDuration(station.ServeTimeMin, station.ServeTimeMax)
-		car.ServiceTime = serveTime
+		car.StationTime = serveTime
 
 		time.Sleep(serveTime)
 
-		car.ServiceEndTime = time.Now()
-		car.ServiceQueueTime = time.Since(car.ServiceStartTime) - serveTime
+		car.StationEndTime = time.Now()
+		car.StationQueueTime = time.Since(car.StationStartTime) - serveTime
 
-		// Pošli auto do ke kase, kde je nejmenší fronta
+		// Pošli auto ke kase, kde je nejmenší fronta
 		register := GetRegisterWithShortestQueue(painGas.Registers)
-		car.ArrivalAtReg = time.Now()
+		car.ArrivalAtRegister = time.Now()
 		register.Queue <- car
 	}
 }

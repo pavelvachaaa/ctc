@@ -7,8 +7,11 @@
 
 PainGas - Nikdy nebylo těžší natankovat ze studnice bolesti. Udržujeme vaše utrpení na cestě, aby trvalo déle.
 
+
+
 ## Spuštění
 V případě dockeru stačí zavolat `docker run pavelvacha/paingas` a kochat se.
 
 [Zde](https://hub.docker.com/r/pavelvacha/paingas) je repo na DockerHubu `https://hub.docker.com/r/pavelvacha/paingas`.
 
+Bez dockeru je potřeba spustit soubor `app/main.go`.

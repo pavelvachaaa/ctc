@@ -29,7 +29,7 @@ func GenerateStats(painGas *domain.PainGas) ([]byte, error) {
 		cashRegisterStats.TotalTime += registerTime
 		cashRegisterStats.MaxQueueTime = max(cashRegisterStats.MaxQueueTime, registerTime)
 
-		serviceAndQueueTime := car.ServiceTime + car.ServiceQueueTime
+		serviceAndQueueTime := car.StationTime + car.StationQueueTime
 		fuelTypeStats.TotalTime += serviceAndQueueTime
 		fuelTypeStats.MaxQueueTime = max(fuelTypeStats.MaxQueueTime, serviceAndQueueTime)
 

@@ -9,7 +9,7 @@ import (
 type PainGas struct {
 	Stations           []*Station
 	Registers          []*Register
-	CarsWorkGroup      sync.WaitGroup
+	CarsWaitGroup      sync.WaitGroup
 	StationWorkGroups  map[types.FuelType]*sync.WaitGroup
 	RegisterWorkGroups sync.WaitGroup
 	Cars               []*Car

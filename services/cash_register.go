@@ -27,10 +27,6 @@ func InitCashRegisters(config types.Configuration) ([]*domain.Register, *sync.Wa
 	return registers, &registerWorkGroups
 }
 
-func SimulateProcess(timeMin int, timeMax int) {
-	time.Sleep(utils.GetRandomDuration(timeMin, timeMax))
-}
-
 func CashRegisterRoutine(register *domain.Register, gs *domain.PainGas) {
 	for car := range register.Queue {
 		car.RegisterStartTime = time.Now()
@@ -42,7 +38,7 @@ func CashRegisterRoutine(register *domain.Register, gs *domain.PainGas) {
 		car.RegisterEndTime = time.Now()
 		car.RegisterQueueTime = time.Since(car.RegisterStartTime) - handleTime
 
-		gs.CarsWorkGroup.Done()
+		gs.CarsWaitGroup.Done()
 	}
 }
 

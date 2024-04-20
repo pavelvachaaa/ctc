@@ -33,6 +33,7 @@ func main() {
 	painGas := initPainGas(*config)
 	painGas.Cars = []*domain.Car{}
 
+	// Spuštění obslužných rutin
 	for _, station := range painGas.Stations {
 		go services.StationRoutine(station, painGas)
 	}
@@ -43,7 +44,7 @@ func main() {
 
 	services.SimulateCars(painGas, *config)
 
-	painGas.CarsWorkGroup.Wait()
+	painGas.CarsWaitGroup.Wait()
 
 	defer func() {
 		for _, station := range painGas.Stations {
@@ -55,6 +56,7 @@ func main() {
 		}
 	}()
 
+	// Statistiky dle zadání do formátu yaml ve složce ./output/stats.yaml
 	yamlBytes, err := services.GenerateStats(painGas)
 	if err != nil {
 		fmt.Println("Error generating YAML:", err)
