@@ -10,7 +10,7 @@ RUN go mod download
 
 COPY . .
 
-RUN go build app/main.go -o main .
+RUN go build /apk/app/main.go
 
 EXPOSE 8080
 
